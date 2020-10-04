@@ -25,14 +25,14 @@
                 <ListView x:Name="phonesList"
                           BackgroundColor="Bisque"     
                           HasUnevenRows="True"
-                          ItemsSource="{Binding Dialogs}"
+                          ItemsSource=" {Binding Dialogs}"
                           ItemTapped="Overview_JoinDialog">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
                                 <ViewCell.View>
                                     <StackLayout>
-                                        <Label Text="{Binding Name}" FontSize="38" />
+                                        <Label Text="{Binding Name} " FontSize="38" />
                                     </StackLayout>
                                 </ViewCell.View>
                             </ViewCell>

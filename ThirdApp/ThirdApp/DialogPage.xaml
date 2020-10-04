@@ -9,20 +9,52 @@
             <RowDefinition Height="40" />
         </Grid.RowDefinitions>
 
-        <AbsoluteLayout BackgroundColor="BurlyWood">
-            <Button Text="Refresh" Clicked="DialogPage_Refresh" AbsoluteLayout.LayoutBounds=".0, 0, 0.3, 1"
-            AbsoluteLayout.LayoutFlags="All" />
-            <Button Text="Options" Clicked="DialogPage_Options" AbsoluteLayout.LayoutBounds="1, 0, 0.3, 1"
-            AbsoluteLayout.LayoutFlags="All"  />
+        <AbsoluteLayout BackgroundColor="BurlyWood" Grid.Column="0" Grid.Row="0">
+            <Button Text="Refresh" Clicked="DialogPage_Refresh" AbsoluteLayout.LayoutBounds="0.05, 0, 160, 40"
+        AbsoluteLayout.LayoutFlags="XProportional" />
+            <Button Text="Options" Clicked="DialogPage_Options" AbsoluteLayout.LayoutBounds="0.95, 0, 160, 40"
+        AbsoluteLayout.LayoutFlags="XProportional"  />
         </AbsoluteLayout>
         
-        <BoxView Color="AntiqueWhite" Grid.Column="0" Grid.Row="1" />
+        <ScrollView BackgroundColor="AntiqueWhite" Grid.Column="0" Grid.Row="1" >
 
-        <AbsoluteLayout BackgroundColor="BurlyWood">
-            <Entry x:Name="message" Placeholder = "mesage" AbsoluteLayout.LayoutBounds=".0, 0, 150, 40"
-            AbsoluteLayout.LayoutFlags="XProportional" />
-            <Button Text="Options" Clicked="DialogPage_Send" AbsoluteLayout.LayoutBounds=".1, 0, 150, 40"
-            AbsoluteLayout.LayoutFlags="XProportional"  />
+            <ListView x:Name="phonesList"
+                          BackgroundColor="Bisque"     
+                          HasUnevenRows="True"
+                          ItemsSource="{Binding Dialog}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <ViewCell.View>
+                                <StackLayout>
+
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="10" />
+                                            <ColumnDefinition Width="*" />
+                                            <ColumnDefinition Width="*" />
+                                            <ColumnDefinition Width="10" />
+                                        </Grid.ColumnDefinitions>
+                                        <Label Text="{Binding text}" FontSize="38" Grid.Column="{Binding position}" Grid.Row="0"/>
+                                    </Grid>
+
+                                    
+                                        
+                                    
+                                </StackLayout>
+                            </ViewCell.View>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+        </ScrollView>
+
+            <AbsoluteLayout BackgroundColor="BurlyWood" Grid.Column="0" Grid.Row="2">
+            <Entry x:Name="message" Placeholder = "mesage" AbsoluteLayout.LayoutBounds="0.05, 0, 0.7, 1"
+        AbsoluteLayout.LayoutFlags="All" />
+            <Button Text="Send" Clicked="DialogPage_Send" AbsoluteLayout.LayoutBounds="0.95, 0, 80, 40"
+        AbsoluteLayout.LayoutFlags="XProportional"  />
 
         </AbsoluteLayout>
 
