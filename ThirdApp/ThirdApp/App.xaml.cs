@@ -10,7 +10,7 @@ namespace ThirdApp
         {
             InitializeComponent();
 
-            MainPage = new StartPage();
+            MainPage = new NavigationPage (new DBLogin());
         }
 
         protected override void OnStart()

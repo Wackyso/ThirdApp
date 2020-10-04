@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ThirdApp.Login">
+    <StackLayout BackgroundColor="BurlyWood">
+
+        <Label Text="Аутентификация"  
+                   FontSize= "25"
+                   VerticalOptions="Center" HorizontalOptions="Center" />
+        <AbsoluteLayout BackgroundColor="BurlyWood">
+
+            <Entry x:Name="loginEntry" Placeholder = "Login" AbsoluteLayout.LayoutBounds=".5, 180, 150, 40"
+            AbsoluteLayout.LayoutFlags="XProportional" />
+            <Entry x:Name="passwordEntry"  Placeholder = "Password" IsPassword ="True" AbsoluteLayout.LayoutBounds=".5, 240, 150, 40"
+            AbsoluteLayout.LayoutFlags="XProportional" />
+            <Button Text="Enter"   AbsoluteLayout.LayoutBounds=".5, 300, 100, 40"
+            AbsoluteLayout.LayoutFlags="XProportional" Clicked="User_Enter" />
+            <Button Text="Create account"   AbsoluteLayout.LayoutBounds=".5, 360, 150, 40"
+            AbsoluteLayout.LayoutFlags="XProportional" Clicked="User_Create"/>
+
+        </AbsoluteLayout>
+
+    </StackLayout>
+</ContentPage>

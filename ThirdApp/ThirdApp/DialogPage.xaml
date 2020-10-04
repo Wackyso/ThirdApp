@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ThirdApp.DialogPage">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="40" />
+        </Grid.RowDefinitions>
+
+        <AbsoluteLayout BackgroundColor="BurlyWood">
+            <Button Text="Refresh" Clicked="DialogPage_Refresh" AbsoluteLayout.LayoutBounds=".0, 0, 0.3, 1"
+            AbsoluteLayout.LayoutFlags="All" />
+            <Button Text="Options" Clicked="DialogPage_Options" AbsoluteLayout.LayoutBounds="1, 0, 0.3, 1"
+            AbsoluteLayout.LayoutFlags="All"  />
+        </AbsoluteLayout>
+        
+        <BoxView Color="AntiqueWhite" Grid.Column="0" Grid.Row="1" />
+
+        <AbsoluteLayout BackgroundColor="BurlyWood">
+            <Entry x:Name="message" Placeholder = "mesage" AbsoluteLayout.LayoutBounds=".0, 0, 150, 40"
+            AbsoluteLayout.LayoutFlags="XProportional" />
+            <Button Text="Options" Clicked="DialogPage_Send" AbsoluteLayout.LayoutBounds=".1, 0, 150, 40"
+            AbsoluteLayout.LayoutFlags="XProportional"  />
+
+        </AbsoluteLayout>
+
+        
+    </Grid>
+</ContentPage>

@@ -3,22 +3,55 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ThirdApp.MainPage">
 
-    <StackLayout>
-        <Frame BackgroundColor="#2196F3" Padding="24" CornerRadius="0">
-            <Label Text="Welcome to Xamarin.Forms!" HorizontalTextAlignment="Center" TextColor="White" FontSize="36"/>
-        </Frame>
-        <Label Text="Start developing now" FontSize="Title" Padding="30,10,30,10"/>
-        <Label Text="Make changes to your XAML file and save to see your UI update in the running app with XAML Hot Reload. Give it a try!" FontSize="16" Padding="30,0,30,0"/>
-        <Label FontSize="16" Padding="30,24,30,0">
-            <Label.FormattedText>
-                <FormattedString>
-                    <FormattedString.Spans>
-                        <Span Text="Learn more at "/>
-                        <Span Text="https://aka.ms/xamarin-quickstart" FontAttributes="Bold"/>
-                    </FormattedString.Spans>
-                </FormattedString>
-            </Label.FormattedText>
-        </Label>
+    <StackLayout BackgroundColor="BurlyWood">
+        
+        <Label Text="MainPage"  
+                   FontSize= "25"
+                   VerticalOptions="Center" HorizontalOptions="Center" />
+        <StackLayout BackgroundColor="BurlyWood">
+
+            <Button Text="Create Dialog" Clicked="Overview_CreateDialog"/>
+
+            <AbsoluteLayout BackgroundColor="BurlyWood">
+
+
+                <Label  Text="Dialogs" AbsoluteLayout.LayoutBounds=".1, 0 , 100, 40"
+            AbsoluteLayout.LayoutFlags="XProportional"/>
+                <Button Text="Refresh" AbsoluteLayout.LayoutBounds=".90, 0 , 100, 40"
+            AbsoluteLayout.LayoutFlags="XProportional" Clicked="Overview_Refresh"/>
+            </AbsoluteLayout>
+
+            <ScrollView>
+                <ListView x:Name="phonesList"
+                          BackgroundColor="Bisque"     
+                          HasUnevenRows="True"
+                          ItemsSource="{Binding Dialogs}"
+                          ItemTapped="Overview_JoinDialog">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <ViewCell.View>
+                                    <StackLayout>
+                                        <Label Text="{Binding Name}" FontSize="38" />
+                                    </StackLayout>
+                                </ViewCell.View>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>    
+                </ListView>
+            </ScrollView>
+            
+            
+            
+            <!--<BoxView Color="Red" AbsoluteLayout.LayoutBounds=".5, 180, 150, 40"
+            AbsoluteLayout.LayoutFlags="XProportional" />
+            <BoxView Color="Green" AbsoluteLayout.LayoutBounds=".5, 240, 150, 40"
+            AbsoluteLayout.LayoutFlags="XProportional" />
+            <BoxView Color="Blue" AbsoluteLayout.LayoutBounds=".5, 300, 100, 40"
+            AbsoluteLayout.LayoutFlags="XProportional" />-->
+
+        </StackLayout>
+
     </StackLayout>
 
 </ContentPage>

@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ThirdApp.Create_Dialog">
+    <ContentPage.Content>
+        <StackLayout>
+            <AbsoluteLayout BackgroundColor="BurlyWood">
+
+                <Entry x:Name="loginEntry" Placeholder = "Dialog member login" AbsoluteLayout.LayoutBounds=".5, 180, 150, 40"
+            AbsoluteLayout.LayoutFlags="XProportional" />
+                <Button Text="Enter"   AbsoluteLayout.LayoutBounds=".5, 300, 100, 40"
+            AbsoluteLayout.LayoutFlags="XProportional" Clicked="CreateDialog_Enter" />
+
+            </AbsoluteLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
