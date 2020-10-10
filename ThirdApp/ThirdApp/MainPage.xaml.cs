@@ -8,21 +8,21 @@ using Xamarin.Forms;
 
 namespace ThirdApp
 {
-    public class Dialog
-    {
-        public string Name { get; set; }
-        public int ID { get; set; }
-    }
+    
         
 
     public partial class MainPage : ContentPage
     {
         public List<Dialog> Dialogs { get; set; }
-        public MainPage()
+        NetService net;
+        public MainPage(request_objs ReqO, List<Dialog> dialogs)
         {
-            InitializeComponent();
+            //Dialogs = new List<Dialog>();
+            //net = new NetService();
 
-            Dialogs = new List<Dialog>
+            //IEnumerable<Dialog> dialogs = await net.GetDialogs();
+            Dialogs = dialogs;
+           /* Dialogs = new List<Dialog>
             {
                 new Dialog {Name="pas"},
                 new Dialog {Name="ole"},
@@ -51,8 +51,11 @@ namespace ThirdApp
                 new Dialog {Name="pas"},
                 new Dialog {Name="pas"},
                 new Dialog {Name="pas"}
-            };
+            };*/
             this.BindingContext = this;
+
+            InitializeComponent();
+
             Subscribe();
         }
 

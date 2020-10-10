@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -12,30 +13,44 @@ namespace ThirdApp
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Login : ContentPage
     {
-        string login, password;
+        request_objs ReqO;
+        
         public Login()
         {
             InitializeComponent();
+            Network net = new Network();
         }
 
         private async void User_Enter (object sender, EventArgs e)
         {
-            login = loginEntry.Text;
-            password = passwordEntry.Text;
-            
-            //запрос на создание объекта и вызов метода класса работы с бд
+            NetService net = new NetService();
 
-            await Navigation.PushAsync(new MainPage());
+            ReqO.login = loginEntry.Text;
+            ReqO.password = passwordEntry.Text;
+
+            List<Dialog> Dialogs = new List<Dialog> { };
+            IEnumerable<Dialog> dialogs = await net.GetDialogs();
+
+            foreach (Dialog d in dialogs)
+                Dialogs.Add(d);
+
+            await Navigation.PushAsync(new MainPage(ReqO, Dialogs));
         }
 
         private async void User_Create (object sender, EventArgs e)
         {
-            login = loginEntry.Text;
-            password = passwordEntry.Text;
+            NetService net = new NetService();
 
-            //запрос на создание объекта и вызов метода класса работы с бд
+            ReqO.login = loginEntry.Text;
+            ReqO.password = passwordEntry.Text;
 
-            await Navigation.PushAsync(new MainPage());
+            List<Dialog> Dialogs = new List<Dialog> { };
+            IEnumerable<Dialog> dialogs = await net.GetDialogs();
+
+            foreach (Dialog d in dialogs)
+                Dialogs.Add(d);
+
+            await Navigation.PushAsync(new MainPage(ReqO, Dialogs));
         }
     }
 }
