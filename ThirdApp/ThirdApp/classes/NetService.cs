@@ -18,7 +18,21 @@ namespace ThirdApp
             return client;
         }
 
-        public async Task<IEnumerable<Dialog>> GetDialogs ()
+        public async Task<IEnumerable<Dialog>> GetDialogs (request_objs ReqO)
+        {
+            HttpClient client = GetClient();
+            string result = await client.GetStringAsync(Url);
+            return JsonConvert.DeserializeObject<IEnumerable<Dialog>>(result);
+        }
+
+        public async Task<IEnumerable<Message>> GetMessages(request_objs ReqO)
+        {
+            HttpClient client = GetClient();
+            string result = await client.GetStringAsync(Url);
+            return JsonConvert.DeserializeObject<IEnumerable<Message>>(result);
+        }
+
+        public async Task<IEnumerable<Dialog>> Get423423432s(request_objs ReqO)
         {
             HttpClient client = GetClient();
             string result = await client.GetStringAsync(Url);

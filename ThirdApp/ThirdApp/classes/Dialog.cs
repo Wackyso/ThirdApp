@@ -8,5 +8,11 @@ namespace ThirdApp
     {
         public string Name { get; set; }
         public int ID { get; set; }
+
+        public Dialog(string Name, int ID)
+        {
+            this.Name = Name;
+            this.ID = ID;
+        }
     }
 }

@@ -15,11 +15,12 @@ namespace ThirdApp
     {
         public List<Dialog> Dialogs { get; set; }
         NetService net;
+        request_objs ReqO;
         public MainPage(request_objs ReqO, List<Dialog> dialogs)
         {
             //Dialogs = new List<Dialog>();
             //net = new NetService();
-
+            this.ReqO = ReqO;
             //IEnumerable<Dialog> dialogs = await net.GetDialogs();
             Dialogs = dialogs;
            /* Dialogs = new List<Dialog>
@@ -81,9 +82,18 @@ namespace ThirdApp
 
         private async void Overview_JoinDialog(object sender, ItemTappedEventArgs e)
         {
+            NetService net = new NetService();
             Dialog talk = e.Item as Dialog;
-            
-            await Navigation.PushAsync(new DialogPage(talk.Name, talk.ID));
+            List<Message> Messages = new List<Message> { };
+
+            ReqO.dialog_id = talk.ID;
+
+            IEnumerable<Message> messages = await net.GetMessages(ReqO);
+
+            foreach (Message m in messages)
+                Messages.Add(m);
+
+            await Navigation.PushAsync(new DialogPage(ReqO, Messages));
         }
 
         private void Dialog_Send(object sender, EventArgs e)

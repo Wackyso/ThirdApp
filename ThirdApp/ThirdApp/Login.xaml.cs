@@ -29,7 +29,7 @@ namespace ThirdApp
             ReqO.password = passwordEntry.Text;
 
             List<Dialog> Dialogs = new List<Dialog> { };
-            IEnumerable<Dialog> dialogs = await net.GetDialogs();
+            IEnumerable<Dialog> dialogs = await net.GetDialogs(ReqO);
 
             foreach (Dialog d in dialogs)
                 Dialogs.Add(d);
@@ -45,10 +45,10 @@ namespace ThirdApp
             ReqO.password = passwordEntry.Text;
 
             List<Dialog> Dialogs = new List<Dialog> { };
-            IEnumerable<Dialog> dialogs = await net.GetDialogs();
+            /*IEnumerable<Dialog> dialogs = await net.GetDialogs(ReqO);
 
             foreach (Dialog d in dialogs)
-                Dialogs.Add(d);
+                Dialogs.Add(d);*/
 
             await Navigation.PushAsync(new MainPage(ReqO, Dialogs));
         }

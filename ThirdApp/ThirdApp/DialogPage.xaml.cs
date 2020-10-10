@@ -13,30 +13,25 @@ namespace ThirdApp
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class DialogPage : ContentPage
     {
-        public class Phrase
-        {
-            public int position { get; set; }
-            
-            public string text { get; set; }
-        }
+        
         public string name { get; set; }
         public int ID { get; set; }
-        public List<Phrase> Dialog { get; set; }
-        public DialogPage(string name, int ID)
+        public List<Message> Messages { get; set; }
+        Dialog dialog;
+        public DialogPage(request_objs ReqO, List<Message> Messages)
         {
-            this.name = name;
-            this.ID = ID;
+            this.Messages= Messages;
             InitializeComponent();
 
-            Dialog = new List<Phrase>
+            /*Dialog = new List<Message>
             {
-                new Phrase {position=1, text = "1lolololo"},
-                new Phrase {position=1, text = "2lolololo"},
-                new Phrase {position=2, text = "3lolololo"},
-                new Phrase {position=2, text = "4lolololo"},
-                new Phrase {position=1, text = "lolololo"},
-                new Phrase {position=2, text = "lolololo"}
-            };
+                new Message { position=1, text = "1lolololo"},
+                new Message {position=1, text = "2lolololo"},
+                new Message {position=2, text = "3lolololo"},
+                new Message {position=2, text = "4lolololo"},
+                new Message {position=1, text = "lolololo"},
+                new Message {position=2, text = "lolololo"}
+            };*/
             this.BindingContext = this;
         }//{Binding text}" FontSize="38" HorizontalOptions=" {Binding position}
 
