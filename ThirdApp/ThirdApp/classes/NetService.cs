@@ -32,11 +32,16 @@ namespace ThirdApp
             return JsonConvert.DeserializeObject<IEnumerable<Message>>(result);
         }
 
-        public async Task<IEnumerable<Dialog>> Get423423432s(request_objs ReqO)
+        public async void AddDialog(request_objs ReqO, string login)
         {
             HttpClient client = GetClient();
             string result = await client.GetStringAsync(Url);
-            return JsonConvert.DeserializeObject<IEnumerable<Dialog>>(result);
+        }
+
+        public async void AddMessage(request_objs ReqO)
+        {
+            HttpClient client = GetClient();
+            string result = await client.GetStringAsync(Url);
         }
     }
 

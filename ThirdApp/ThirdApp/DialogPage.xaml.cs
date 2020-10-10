@@ -18,8 +18,10 @@ namespace ThirdApp
         public int ID { get; set; }
         public List<Message> Messages { get; set; }
         Dialog dialog;
+        request_objs ReqO;
         public DialogPage(request_objs ReqO, List<Message> Messages)
         {
+            this.ReqO = ReqO;
             this.Messages= Messages;
             InitializeComponent();
 
@@ -37,12 +39,19 @@ namespace ThirdApp
 
         private void DialogPage_Send(object sender, EventArgs e)
         {
-
+            NetService net = new NetService();
+            net.AddMessage(ReqO);
         }
 
-        private void DialogPage_Refresh(object sender, EventArgs e)
+        private async void DialogPage_Refresh(object sender, EventArgs e)
         {
+            NetService net = new NetService();
+            List<Message> Messages = new List<Message> { };
 
+            IEnumerable<Message> messages = await net.GetMessages(ReqO);
+
+            foreach (Message m in messages)
+                Messages.Add(m);
         }
 
         private void DialogPage_Options(object sender, EventArgs e)

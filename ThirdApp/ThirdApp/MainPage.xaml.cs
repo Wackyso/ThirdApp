@@ -71,13 +71,12 @@ namespace ThirdApp
 
         private async void Overview_CreateDialog (object sender, EventArgs e)
         {
-
-            await Navigation.PushAsync(new Create_Dialog());
+            await Navigation.PushAsync(new Create_Dialog(ReqO));
         }
 
         private void Overview_Refresh(object sender, EventArgs e)
         {
-            //Refresh(); 
+            Refresh();
         }
 
         private async void Overview_JoinDialog(object sender, ItemTappedEventArgs e)
@@ -96,19 +95,18 @@ namespace ThirdApp
             await Navigation.PushAsync(new DialogPage(ReqO, Messages));
         }
 
-        private void Dialog_Send(object sender, EventArgs e)
+
+        private async void Refresh()
         {
+            NetService net = new NetService();
 
-        }
 
-        private void Dialog_Refresh(object sender, EventArgs e)
-        {
+            List<Dialog> Dialogs = new List<Dialog> { };
+            IEnumerable<Dialog> dialogs = await net.GetDialogs(ReqO);
 
-        }
-
-        private void Refresh()
-        {
-            //запрос диалогов из бд и метод обновления
+            
+            foreach (Dialog d in dialogs)
+                Dialogs.Add(d);
         }
     }
 }

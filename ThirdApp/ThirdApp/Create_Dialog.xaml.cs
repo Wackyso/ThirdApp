@@ -13,15 +13,18 @@ namespace ThirdApp
     public partial class Create_Dialog : ContentPage
     {
         string login;
-        public Create_Dialog()
+        request_objs ReqO;
+        public Create_Dialog(request_objs ReqO)
         {
+            this.ReqO = ReqO;
             InitializeComponent();
         }
 
         private async void CreateDialog_Enter (object sender, EventArgs e)
         {
             login = loginEntry.Text;
-
+            NetService net = new NetService();
+            net.AddDialog(ReqO,login);
             //запрос на создание диалога с login
 
             MessagingCenter.Send<Page>(this, "Dialogs_Refresh");
