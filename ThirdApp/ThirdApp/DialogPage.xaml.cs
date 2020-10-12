@@ -13,7 +13,7 @@ namespace ThirdApp
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class DialogPage : ContentPage
     {
-        
+        DateTime localDate = DateTime.Now;
         public string name { get; set; }
         public int ID { get; set; }
         public List<Message> Messages { get; set; }
@@ -40,7 +40,7 @@ namespace ThirdApp
         private void DialogPage_Send(object sender, EventArgs e)
         {
             NetService net = new NetService();
-            net.AddMessage(ReqO);
+            net.AddMessage(ReqO,localDate);
         }
 
         private async void DialogPage_Refresh(object sender, EventArgs e)

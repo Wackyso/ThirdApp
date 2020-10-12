@@ -13,7 +13,7 @@ namespace ThirdApp
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Login : ContentPage
     {
-        request_objs ReqO;
+        
         
         public Login()
         {
@@ -25,8 +25,9 @@ namespace ThirdApp
         {
             NetService net = new NetService();
 
-            ReqO.login = loginEntry.Text;
-            ReqO.password = passwordEntry.Text;
+            request_objs ReqO = new request_objs(loginEntry.Text, passwordEntry.Text);
+
+            
 
             List<Dialog> Dialogs = new List<Dialog> { };
             IEnumerable<Dialog> dialogs = await net.GetDialogs(ReqO);
@@ -40,15 +41,16 @@ namespace ThirdApp
         private async void User_Create (object sender, EventArgs e)
         {
             NetService net = new NetService();
+            request_objs ReqO = new request_objs(loginEntry.Text, passwordEntry.Text);
 
-            ReqO.login = loginEntry.Text;
-            ReqO.password = passwordEntry.Text;
+
+           
 
             List<Dialog> Dialogs = new List<Dialog> { };
-            /*IEnumerable<Dialog> dialogs = await net.GetDialogs(ReqO);
+            /*IEnumerable<Dialog> dialogs = await*/ net.CreateAcc(ReqO);
 
-            foreach (Dialog d in dialogs)
-                Dialogs.Add(d);*/
+            //foreach (Dialog d in dialogs)
+            //    Dialogs.Add(d);
 
             await Navigation.PushAsync(new MainPage(ReqO, Dialogs));
         }

@@ -12,7 +12,7 @@ namespace ThirdApp
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Create_Dialog : ContentPage
     {
-        string login;
+        string interlocutor;
         request_objs ReqO;
         public Create_Dialog(request_objs ReqO)
         {
@@ -22,9 +22,9 @@ namespace ThirdApp
 
         private async void CreateDialog_Enter (object sender, EventArgs e)
         {
-            login = loginEntry.Text;
+            interlocutor = loginEntry.Text;
             NetService net = new NetService();
-            net.AddDialog(ReqO,login);
+            net.AddDialog(ReqO, interlocutor);
             //запрос на создание диалога с login
 
             MessagingCenter.Send<Page>(this, "Dialogs_Refresh");
