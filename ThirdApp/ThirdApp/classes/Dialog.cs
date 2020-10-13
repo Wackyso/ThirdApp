@@ -6,13 +6,15 @@ namespace ThirdApp
 {
     public class Dialog
     {
-        public string Name { get; set; }
-        public int ID { get; set; }
+        public string login { get; set; }
+        public int dialog_id { get; set; }
+        public string interlocutor { get; set; }
 
-        public Dialog(string Name, int ID)
+        public Dialog(string Name, int ID, string interlocutor)
         {
-            this.Name = Name;
-            this.ID = ID;
+            this.login = Name;
+            this.dialog_id = ID;
+            this.interlocutor = interlocutor;
         }
     }
 }

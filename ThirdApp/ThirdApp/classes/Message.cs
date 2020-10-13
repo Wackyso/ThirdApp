@@ -6,9 +6,12 @@ namespace ThirdApp
 {
     public class Message
     {
-        public int position { get; set; }
 
+        public int login { get; set; }
         public string text { get; set; }
+        
+
+        public DateTime send_time { get; set; }
 
         /*public Message (int position, string text)
         {

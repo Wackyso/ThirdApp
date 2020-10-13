@@ -85,7 +85,7 @@ namespace ThirdApp
             Dialog talk = e.Item as Dialog;
             List<Message> Messages = new List<Message> { };
 
-            ReqO.dialog_id = talk.ID;
+            ReqO.dialog_id = talk.dialog_id;
 
             IEnumerable<Message> messages = await net.GetMessages(ReqO);
 

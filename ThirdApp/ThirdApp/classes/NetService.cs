@@ -12,9 +12,9 @@ namespace ThirdApp
 {
     class NetService
     {
-        const string Acc = "http://192.168.1.7:57755/api/account";
-        const string Dia = "http://192.168.1.7:57755/api/dialof";
-        const string Mes = "http://192.168.1.7:57755/api/message";
+        const string Acc = "http://192.168.1.7:3000/api/account";
+        const string Dia = "http://192.168.1.7:3000/api/dialog";
+        const string Mes = "http://192.168.1.7:3000/api/message";
         private HttpClient GetClient()
         {
             HttpClient client = new HttpClient();

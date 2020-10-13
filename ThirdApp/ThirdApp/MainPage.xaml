@@ -32,7 +32,7 @@
                             <ViewCell>
                                 <ViewCell.View>
                                     <StackLayout>
-                                        <Label Text="{Binding Name} " FontSize="38" />
+                                        <Label Text="{Binding interlocutor} " FontSize="38" />
                                     </StackLayout>
                                 </ViewCell.View>
                             </ViewCell>

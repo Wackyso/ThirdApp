@@ -21,7 +21,7 @@
             <ListView x:Name="phonesList"
                           BackgroundColor="Bisque"     
                           HasUnevenRows="True"
-                          ItemsSource="{Binding Dialog}">
+                          ItemsSource="{Binding Messages}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
@@ -35,7 +35,7 @@
                                             <ColumnDefinition Width="*" />
                                             <ColumnDefinition Width="10" />
                                         </Grid.ColumnDefinitions>
-                                        <Label Text="{Binding text}" FontSize="38" Grid.Column="{Binding position}" Grid.Row="0"/>
+                                        <Label Text="{Binding text}" FontSize="38" Grid.Column="{Binding login}" Grid.Row="0"/>
                                     </Grid>
 
                                     

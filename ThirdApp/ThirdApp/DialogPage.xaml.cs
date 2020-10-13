@@ -39,8 +39,13 @@ namespace ThirdApp
 
         private void DialogPage_Send(object sender, EventArgs e)
         {
+
+            ReqO.message = message.Text;
+
             NetService net = new NetService();
+            
             net.AddMessage(ReqO,localDate);
+            ReqO.message = "";
         }
 
         private async void DialogPage_Refresh(object sender, EventArgs e)
@@ -49,9 +54,10 @@ namespace ThirdApp
             List<Message> Messages = new List<Message> { };
 
             IEnumerable<Message> messages = await net.GetMessages(ReqO);
-
+            ре
             foreach (Message m in messages)
                 Messages.Add(m);
+            await Navigation.PushAsync(new DialogPage(ReqO, Messages));
         }
 
         private void DialogPage_Options(object sender, EventArgs e)
